@@ -1,6 +1,7 @@
 package com.zipcodewilmington;
 
 
+import java.util.Arrays;
 
 /**
  * Created by leon on 1/29/18.
@@ -97,19 +98,14 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        String alp = "abcdefghijklmnopqrstuvwxyz";
-        String inputString = "";
-        for (int i = 0; i < array.length ; i++) {
-            inputString += array[i];
-        }
-
-        for (int j = 0; j < alp.length(); j++){
-            if (!inputString.contains(Character.toString(alp.charAt(j)))){
-                return false;
+        String letterCheck =  Arrays.toString(array).toLowerCase();
+            int missingLetter = 0;
+            for (char i = 'a'; i <= 'z'; i++){
+                if (letterCheck.indexOf(i) == -1){
+                    missingLetter++;
+                }
             }
-
-        }
-        return true;
+            return missingLetter == 0;
     }
 
     /**
@@ -118,8 +114,14 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
+        int occur = 0;
+        for (int i = 0; i < array.length; i++){
+            if (array[i] == value){
+                occur ++;
+            }
+        }
 
-        return 0;
+        return occur;
     }
 
     /**
@@ -128,8 +130,19 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
+        String[] newArray = new String[array.length-1];
+        int curVal = 0;
 
-        return null;
+        for (int i = 0; i < array.length; i++){
+            if (array[i] == valueToRemove){
+
+            }
+            else {
+                newArray[curVal] = array[i];
+                curVal++;
+            }
+        }
+        return newArray;
     }
 
     /**
@@ -137,6 +150,8 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
+        String n = "";
+        String[] newArray = new String[array.length];
 
         return null;
     }
