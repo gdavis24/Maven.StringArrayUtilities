@@ -150,10 +150,35 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        String n = "";
-        String[] newArray = new String[array.length];
+        String placeHolder = "";
+        String[] newRet = new String[array.length];
+        newRet[0] = array[0];
+        int foundGroups = 1;
 
-        return null;
+        for (int i = 1; i <= array.length - 1; i++){
+
+            String actual = array[i];
+            if(array[i].equals(array[i-1])){
+                newRet[i] = placeHolder;
+            }
+            else{
+                foundGroups++;
+                newRet[i] = actual;
+            }
+        }
+        String[] result = new String[foundGroups];
+        int counter = 0;
+
+        for(int x = 0; x <= array.length -1; x++) {
+            if(newRet[x].equals(placeHolder)){
+
+            }
+            else if(!newRet[x].equals(placeHolder)){
+                result[counter] = newRet[x];
+                counter++;
+            }
+        }
+    return result;
     }
 
     /**
